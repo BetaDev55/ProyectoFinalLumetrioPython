@@ -1,7 +1,3 @@
-#Jugar en la nueva consola que incluye windows o en una consola que reproduzca emojis y colores, si se usa el CMD de toda la vida va a dar errores graficos por todos lados.
-
-#La nueva consola de windows se llama wt.exe.
-
 import random
 
 FILAS = 0
@@ -13,55 +9,6 @@ tablero = ""
 tableroMostrado = ""
 final = False
 
-asciiArtPython = r"""
-   _ (`-.               .-') _    ('-. .-.                  .-') _                                                                 
-  ( (OO  )             (  OO) )  ( OO )  /                 ( OO ) )                                                                
- _.`     \  ,--.   ,--./     '._ ,--. ,--. .-'),-----. ,--./ ,--,'                                                                 
-(__...--''   \  `.'  / |'--...__)|  | |  |( OO'  .-.  '|   \ |  |\                                                                 
- |  /  | | .-')     /  '--.  .--'|   .|  |/   |  | |  ||    \|  | )                                                                
- |  |_.' |(OO  \   /      |  |   |       |\_) |  |\|  ||  .     |/                                                                 
- |  .___.' |   /  /\_     |  |   |  .-.  |  \ |  | |  ||  |\    |                                                                  
- |  |      `-./  /.__)    |  |   |  | |  |   `'  '-'  '|  | \   |                                                                  
- `--'        `--'         `--'   `--' `--'     `-----' `--'  `--'
-"""
-asciiArtBM = r"""
-.-. .-')                 .-')                ('-.           _   .-')                 .-') _    ('-.      .-')                      
-\  ( OO )               ( OO ).             ( OO ).-.      ( '.( OO )_              ( OO ) )  ( OO ).-. ( OO ).                    
- ;-----.\  ,--. ,--.   (_)---\_)   .-----.  / . --. /       ,--.   ,--.) ,-.-') ,--./ ,--,'   / . --. /(_)---\_)                   
- | .-.  |  |  | |  |   /    _ |   '  .--./  | \-.  \        |   `.'   |  |  |OO)|   \ |  |\   | \-.  \ /    _ |                    
- | '-' /_) |  | | .-') \  :` `.   |  |('-..-'-'  |  |       |         |  |  |  \|    \|  | ).-'-'  |  |\  :` `.                    
- | .-. `.  |  |_|( OO ) '..`''.) /_) |OO  )\| |_.'  |       |  |'.'|  |  |  |(_/|  .     |/  \| |_.'  | '..`''.)                   
- | |  \  | |  | | `-' /.-._)   \ ||  |`-'|  |  .-.  |       |  |   |  | ,|  |_.'|  |\    |    |  .-.  |.-._)   \                   
- | '--'  /('  '-'(_.-' \       /(_'  '--'\  |  | |  |       |  |   |  |(_|  |   |  | \   |    |  | |  |\       /                   
- `------'   `-----'     `-----'    `-----'  `--' `--'       `--'   `--'  `--'   `--'  `--'    `--' `--' `-----' 
-"""
-asciiArtPB = r"""
-   _ (`-.              _  .-')        .-. .-')    ('-.   .-') _      ('-.                                                          
-  ( (OO  )            ( \( -O )       \  ( OO ) _(  OO) (  OO) )    ( OO ).-.                                                      
- _.`     \ .-'),-----. ,------.        ;-----.\(,------./     '._   / . --. /                                                      
-(__...--''( OO'  .-.  '|   /`. '       | .-.  | |  .---'|'--...__)  | \-.  \                                                       
- |  /  | |/   |  | |  ||  /  | |       | '-' /_)|  |    '--.  .--'.-'-'  |  |                                                      
- |  |_.' |\_) |  |\|  ||  |_.' |       | .-. `.(|  '--.    |  |    \| |_.'  |                                                      
- |  .___.'  \ |  | |  ||  .  '.'       | |  \  ||  .--'    |  |     |  .-.  |                                                      
- |  |        `'  '-'  '|  |\  \        | '--'  /|  `---.   |  |     |  | |  |                                                      
- `--'          `-----' `--' '--'       `------' `------'   `--'     `--' `--'     
-"""
-asciiArtPL = r"""
-   _ (`-.    ('-.     _  .-')     ('-.                                _   .-')       ('-.   .-') _   _  .-')                       
-  ( (OO  )  ( OO ).-.( \( -O )   ( OO ).-.                           ( '.( OO )_   _(  OO) (  OO) ) ( \( -O )                      
- _.`     \  / . --. / ,------.   / . --. /       ,--.     ,--. ,--.   ,--.   ,--.)(,------./     '._ ,------.  ,-.-')  .-'),-----. 
-(__...--''  | \-.  \  |   /`. '  | \-.  \        |  |.-') |  | |  |   |   `.'   |  |  .---'|'--...__)|   /`. ' |  |OO)( OO'  .-.  '
- |  /  | |.-'-'  |  | |  /  | |.-'-'  |  |       |  | OO )|  | | .-') |         |  |  |    '--.  .--'|  /  | | |  |  \/   |  | |  |
- |  |_.' | \| |_.'  | |  |_.' | \| |_.'  |       |  |`-' ||  |_|( OO )|  |'.'|  | (|  '--.    |  |   |  |_.' | |  |(_/\_) |  |\|  |
- |  .___.'  |  .-.  | |  .  '.'  |  .-.  |      (|  '---.'|  | | `-' /|  |   |  |  |  .--'    |  |   |  .  '.',|  |_.'  \ |  | |  |
- |  |       |  | |  | |  |\  \   |  | |  |       |      |('  '-'(_.-' |  |   |  |  |  `---.   |  |   |  |\  \(_|  |      `'  '-'  '
- `--'       `--' `--' `--' '--'  `--' `--'       `------'  `-----'    `--'   `--'  `------'   `--'   `--' '--' `--'        `-----' 
-"""
-                                                    
-print("\033[32m" + asciiArtPython, end="")
-print("\033[33m" + asciiArtBM, end="")
-print("\033[34m" + asciiArtPB, end="")
-print("\033[31m" + asciiArtPL, end="" + "\033[0m")
 
 def dificultad():
     global MINAS
@@ -101,12 +48,16 @@ def dificultad():
         except ValueError:
             print("Porfavor elige una opción valida.")
 
-
 FILAS, COLUMNAS, MINAS = dificultad()
 
-tablero = [["." for _ in range(COLUMNAS)] for _ in range(FILAS)]
+tablero = [["." for _ in range(COLUMNAS)] for _ in range(FILAS+1)]
 
-tableroMostrado = [["🔲" for _ in range(COLUMNAS)] for _ in range(FILAS)]
+tableroMostrado = [["🔲" for _ in range(COLUMNAS)] for _ in range(FILAS+1)]
+
+for i in range(FILAS+1):
+    tableroMostrado[i].insert(0, "{:<2}".format(i))
+
+tableroMostrado[0] = [""] + [""] + [""] + ["{:<2}".format(i) for i in range(1, COLUMNAS+1)]
 
 minas = random.sample([(i, j) for i in range(FILAS) for j in range(COLUMNAS)], MINAS)
 for minar in minas:
@@ -185,12 +136,17 @@ def juego():
     minasTotales = MINAS
     final = False
 
+def print_board():
+    for i in range(FILAS):
+        for j in range(COLUMNAS):
+            print(tableroMostrado[i][j], end=" ")
+        print("\n")
+
 for i in range(FILAS):
     for j in range(COLUMNAS):
         if tablero[i][j] != "💣":
             tablero[i][j] = str(contarMinas(i, j)) 
 while not final:
-
     if banderaCorrectas == minasTotales and banderaCorrectas < minasTotales:
         print("Ganaste!")
         final = True
@@ -218,7 +174,8 @@ while not final:
         except ValueError:
             print("Parece que el valor que elegiste no es valido, recuerda que debe ser así: x y donde 'x' es la fila y 'x' la columna.")
             continue
-        
+    print_board()
+    
     if 0 <= fila < FILAS and 0 <= columna < COLUMNAS:
             if tableroMostrado[fila][columna] != "🔲":
                 print("Este sitio ya habia sido revelado, o tiene una bandera encima.")
