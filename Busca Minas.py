@@ -1,3 +1,7 @@
+#Jugar en la nueva consola que incluye windows o en una consola que reproduzca emojis y colores, si se usa el CMD de toda la vida va a dar errores graficos por todos lados.
+
+#La nueva consola de windows se llama wt.exe.
+
 import random
 
 FILAS = 0
